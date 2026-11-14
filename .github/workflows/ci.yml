@@ -1,4 +1,4 @@
-﻿name: CI — verify and publish image
+name: CI — verify and publish image
 on:
   push:
     branches: [main]
@@ -54,12 +54,12 @@ jobs:
       - name: Unit tests
         run: python -m pytest -q
 
-    image:
-      needs: test
-      runs-on: ubuntu-latest
-      permissions:
-        contents: read
-        packages: write
+  image:
+    needs: test
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
     steps:
       - name: Checkout
         uses: actions/checkout@v4
